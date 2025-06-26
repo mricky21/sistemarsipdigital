@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsip Masuk - Sistem Kearsipan Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/arsip-masuk-style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-archive"></i>
+                    <span>ArsipDigital</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Beranda</a>
+                    <a href="arsip-masuk.html" class="active">Arsip Masuk</a>
+                    <a href="arsip-keluar.html">Arsip Keluar</a>
+                    <a href="klasifikasi.html">Klasifikasi</a>
+                    <a href="laporan.html">Laporan</a>
+                    <a href="statistik.html">Statistik</a>
+                    <a href="tentang.html">Tentang</a>
+                    <div class="user-profile">
+                        <div class="user-avatar">MRA</div>
+                        <div>
+                            <div>Muhammad Ricky Ardian</div>
+                            <small>Administrator</small>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Arsip Masuk</h1>
+                    <p>Kelola semua dokumen yang masuk ke sistem kearsipan</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Tambah Arsip
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label for="search">Cari Dokumen</label>
+                        <input type="text" id="search" class="filter-control" placeholder="Masukkan kata kunci...">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="category">Kategori</label>
+                        <select id="category" class="filter-control">
+                            <option value="">Semua Kategori</option>
+                            <option value="keuangan">Keuangan</option>
+                            <option value="sdm">SDM</option>
+                            <option value="administrasi">Administrasi</option>
+                            <option value="penelitian">Penelitian</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="date">Tanggal Masuk</label>
+                        <input type="date" id="date" class="filter-control">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="status">Status</label>
+                        <select id="status" class="filter-control">
+                            <option value="">Semua Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Disetujui</option>
+                            <option value="rejected">Ditolak</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button class="btn btn-primary" id="apply-filter">
+                        <i class="fas fa-filter"></i> Terapkan Filter
+                    </button>
+                    <button class="btn" id="reset-filter" style="background: #f1f3f9; color: var(--dark);">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Documents Table -->
+            <div class="documents-container">
+                <div class="table-header">
+                    <div>
+                        <h3>Daftar Arsip Masuk</h3>
+                        <p>Menampilkan <span id="document-count">24</span> dari 142 dokumen</p>
+                    </div>
+                    <div class="table-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="table-search" placeholder="Cari di arsip masuk...">
+                        </div>
+                        <button class="action-btn">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-print"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <table class="documents-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="document">Dokumen <i class="fas fa-sort"></i></th>
+                            <th data-sort="category">Kategori <i class="fas fa-sort"></i></th>
+                            <th data-sort="date">Tanggal Masuk <i class="fas fa-sort"></i></th>
+                            <th data-sort="sender">Pengirim</th>
+                            <th data-sort="status">Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="documents-body">
+                        <!-- Dokumen akan dimuat melalui JavaScript -->
+                    </tbody>
+                </table>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination-btn" id="prev-page">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">4</button>
+                    <button class="pagination-btn">5</button>
+                    <button class="pagination-btn" id="next-page">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ArsipDigital</h3>
+                    <p>Solusi manajemen kearsipan digital terintegrasi untuk institusi modern.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Navigasi</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="arsip-masuk.html"><i class="fas fa-chevron-right"></i> Arsip Masuk</a></li>
+                        <li><a href="arsip-keluar.html"><i class="fas fa-chevron-right"></i> Arsip Keluar</a></li>
+                        <li><a href="klasifikasi.html"><i class="fas fa-chevron-right"></i> Klasifikasi</a></li>
+                        <li><a href="statistik.html"><i class="fas fa-chevron-right"></i> Statistik</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="laporan.html"><i class="fas fa-chevron-right"></i> Laporan</a></li>
+                        <li><a href="buku-tamu.html"><i class="fas fa-chevron-right"></i> Buku Tamu</a></li>
+                        <li><a href="pengenalan-arsip-digital.html"><i class="fas fa-chevron-right"></i> Video Tutorial</a></li>
+                        <li><a href="login.html"><i class="fas fa-chevron-right"></i> Login Admin</a></li>
+                        <li><a href="tentang.html"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak Kami</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Jl. Arsip No. 123, Jakarta</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> (021) 977777959</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> muhammadrickyardian@arsipdigital.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Senin-Jumat: 08:00 - 17:00</a></li>
+                        <li><a href="#"><i class="fas fa-download"></i> Download Panduan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Sistem Kearsipan Digital. Dibuat oleh Muhammad Ricky Ardian. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/arsip-masuk-script.js"></script>
+</body>
+</html>

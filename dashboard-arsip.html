@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistem Kearsipan Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard-style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-title">
+                <i class="fas fa-archive"></i>
+                <span>Dashboard</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="arsip-masuk.html"><i class="fas fa-inbox"></i> Arsip Masuk</a></li>
+                <li><a href="arsip-keluar.html"><i class="fas fa-paper-plane"></i> Arsip Keluar</a></li>
+                <li><a href="klasifikasi.html"><i class="fas fa-folder-tree"></i> Klasifikasi</a></li>
+                <li><a href="laporan.html"><i class="fas fa-file-alt"></i> Laporan</a></li>
+                <li><a href="statistik.html"><i class="fas fa-chart-bar"></i> Statistik</a></li>
+                <li><a href="buku-tamu.html"><i class="fas fa-book"></i> Buku Tamu</a></li>
+                <li><a href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+                <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+            </ul>
+            
+            <div class="sidebar-stats">
+                <h4>Statistik Singkat</h4>
+                <div class="stat-item">
+                    <span>Arsip Masuk:</span>
+                    <strong>1,248</strong>
+                </div>
+                <div class="stat-item">
+                    <span>Arsip Keluar:</span>
+                    <strong>892</strong>
+                </div>
+                <div class="stat-item">
+                    <span>Pengguna Aktif:</span>
+                    <strong>24</strong>
+                </div>
+                <div class="stat-item">
+                    <span>Klasifikasi:</span>
+                    <strong>15</strong>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header">
+                <div>
+                    <h1 class="dashboard-title">Dashboard Sistem Kearsipan</h1>
+                    <p>Selamat datang kembali, <strong>Muhammad Ricky Ardian</strong> | <span id="current-date"></span></p>
+                </div>
+                <div class="dashboard-actions">
+                    <button class="action-btn"><i class="fas fa-sync-alt"></i></button>
+                    <button class="action-btn"><i class="fas fa-bell"></i></button>
+                    <button class="action-btn"><i class="fas fa-cog"></i></button>
+                </div>
+            </div>
+            
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <h3>Arsip Masuk</h3>
+                            <p>Bulan ini</p>
+                        </div>
+                        <div class="stat-icon inbox">
+                            <i class="fas fa-inbox"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>142</h3>
+                        <div class="stat-trend">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12.5% dari bulan lalu</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <h3>Arsip Keluar</h3>
+                            <p>Bulan ini</p>
+                        </div>
+                        <div class="stat-icon outbox">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>98</h3>
+                        <div class="stat-trend">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>8.3% dari bulan lalu</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <h3>Klasifikasi</h3>
+                            <p>Total kategori</p>
+                        </div>
+                        <div class="stat-icon classify">
+                            <i class="fas fa-folder-tree"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>15</h3>
+                        <div class="stat-trend">
+                            <i class="fas fa-plus"></i>
+                            <span>2 kategori baru bulan ini</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <h3>Pengguna</h3>
+                            <p>Aktif bulan ini</p>
+                        </div>
+                        <div class="stat-icon users">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <h3>24</h3>
+                        <div class="stat-trend down">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>2.3% dari bulan lalu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts Grid -->
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Aktivitas Arsip Bulan Ini</h3>
+                        <div class="chart-actions">
+                            <button class="action-btn"><i class="fas fa-download"></i></button>
+                            <button class="action-btn"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-bar"></i>
+                            <p>Grafik aktivitas arsip akan ditampilkan di sini</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Distribusi Klasifikasi</h3>
+                        <div class="chart-actions">
+                            <button class="action-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-pie"></i>
+                            <p>Grafik distribusi klasifikasi akan ditampilkan di sini</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Activity Section -->
+            <div class="activity-container">
+                <div class="activity-header">
+                    <h3 class="activity-title">Aktivitas Terbaru</h3>
+                    <a href="#" class="view-all-link">
+                        Lihat Semua <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-icon add">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">
+                                <strong>Ricky Ardian</strong> menambahkan dokumen baru "Laporan Keuangan Q1 2025"
+                            </div>
+                            <div class="activity-time">
+                                <i class="far fa-clock"></i> 2 jam yang lalu
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="activity-item">
+                        <div class="activity-icon download">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">
+                                <strong>Ahmad Fauzi</strong> mengunduh dokumen "Surat Keputusan Direktur No. 123"
+                            </div>
+                            <div class="activity-time">
+                                <i class="far fa-clock"></i> 5 jam yang lalu
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="activity-item">
+                        <div class="activity-icon edit">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">
+                                <strong>Dewi Sartika</strong> memperbarui klasifikasi "Keuangan"
+                            </div>
+                            <div class="activity-time">
+                                <i class="far fa-clock"></i> Kemarin, 15:32
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="activity-item">
+                        <div class="activity-icon delete">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">
+                                <strong>Budi Santoso</strong> menghapus dokumen "Draft Proposal 2024"
+                            </div>
+                            <div class="activity-time">
+                                <i class="far fa-clock"></i> Kemarin, 10:15
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Recent Documents -->
+            <div class="documents-container">
+                <div class="documents-header">
+                    <h3 class="documents-title">Dokumen Terbaru</h3>
+                    <a href="#" class="view-all-link">
+                        Lihat Semua <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <table class="documents-table">
+                    <thead>
+                        <tr>
+                            <th>Dokumen</th>
+                            <th>Klasifikasi</th>
+                            <th>Tanggal</th>
+                            <th>Ukuran</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="document-type">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Laporan Keuangan Q1 2025.pdf</span>
+                                </div>
+                            </td>
+                            <td>Keuangan</td>
+                            <td>15 Mar 2025</td>
+                            <td>2.4 MB</td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    <button class="action-btn"><i class="fas fa-share-alt"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="document-type">
+                                    <i class="fas fa-file-word"></i>
+                                    <span>Proposal Penelitian 2025.docx</span>
+                                </div>
+                            </td>
+                            <td>Penelitian</td>
+                            <td>14 Mar 2025</td>
+                            <td>1.8 MB</td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    <button class="action-btn"><i class="fas fa-share-alt"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="document-type">
+                                    <i class="fas fa-file-excel"></i>
+                                    <span>Data Karyawan 2025.xlsx</span>
+                                </div>
+                            </td>
+                            <td>SDM</td>
+                            <td>12 Mar 2025</td>
+                            <td>3.1 MB</td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    <button class="action-btn"><i class="fas fa-share-alt"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="document-type">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>SK Pengangkatan Staff.pdf</span>
+                                </div>
+                            </td>
+                            <td>Administrasi</td>
+                            <td>10 Mar 2025</td>
+                            <td>1.2 MB</td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    <button class="action-btn"><i class="fas fa-share-alt"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="document-type">
+                                    <i class="fas fa-file-image"></i>
+                                    <span>Struktur Organisasi.png</span>
+                                </div>
+                            </td>
+                            <td>Organisasi</td>
+                            <td>8 Mar 2025</td>
+                            <td>4.7 MB</td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn"><i class="fas fa-download"></i></button>
+                                    <button class="action-btn"><i class="fas fa-share-alt"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dashboard-script.js"></script>
+</body>
+</html>

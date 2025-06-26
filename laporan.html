@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan - Sistem Kearsipan Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/laporan-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-archive"></i>
+                    <span>ArsipDigital</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Beranda</a>
+                    <a href="arsip-masuk.html">Arsip Masuk</a>
+                    <a href="arsip-keluar.html">Arsip Keluar</a>
+                    <a href="klasifikasi.html">Klasifikasi</a>
+                    <a href="laporan.html" class="active">Laporan</a>
+                    <a href="statistik.html">Statistik</a>
+                    <a href="tentang.html">Tentang</a>
+                    <div class="user-profile">
+                        <div class="user-avatar">MRA</div>
+                        <div>
+                            <div>Muhammad Ricky Ardian</div>
+                            <small>Administrator</small>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Laporan Arsip</h1>
+                    <p>Analisis dan statistik arsip masuk dan keluar</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" id="print-report">
+                        <i class="fas fa-print"></i> Cetak Laporan
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label for="report-type">Jenis Laporan</label>
+                        <select id="report-type" class="filter-control">
+                            <option value="summary">Ringkasan Bulanan</option>
+                            <option value="incoming">Arsip Masuk</option>
+                            <option value="outgoing">Arsip Keluar</option>
+                            <option value="category">Berdasarkan Kategori</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="period">Periode</label>
+                        <select id="period" class="filter-control">
+                            <option value="this-month">Bulan Ini</option>
+                            <option value="last-month">Bulan Lalu</option>
+                            <option value="this-quarter">Kuartal Ini</option>
+                            <option value="this-year">Tahun Ini</option>
+                            <option value="custom">Kustom</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group custom-dates">
+                        <label for="start-date">Tanggal Mulai</label>
+                        <input type="date" id="start-date" class="filter-control">
+                    </div>
+                    
+                    <div class="filter-group custom-dates">
+                        <label for="end-date">Tanggal Akhir</label>
+                        <input type="date" id="end-date" class="filter-control">
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button class="btn btn-primary" id="generate-report">
+                        <i class="fas fa-sync-alt"></i> Hasilkan Laporan
+                    </button>
+                    <button class="btn" id="reset-filter" style="background: #f1f3f9; color: var(--dark);">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Summary Cards -->
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="card-header">
+                        <h3>Total Arsip</h3>
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">1,245</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-up"></i> 12% dari bulan lalu
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-header">
+                        <h3>Arsip Masuk</h3>
+                        <i class="fas fa-inbox"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">842</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-up"></i> 8% dari bulan lalu
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-header">
+                        <h3>Arsip Keluar</h3>
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">403</div>
+                        <div class="card-change negative">
+                            <i class="fas fa-arrow-down"></i> 3% dari bulan lalu
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-header">
+                        <h3>Rata-rata Verifikasi</h3>
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-value">2.3 Hari</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-down"></i> 1.1 hari lebih cepat
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+<!-- Charts Section -->
+<div class="charts-section">
+    <div class="chart-container">
+        <div class="chart-header">
+            <h3>Statistik Arsip Bulanan</h3>
+            <div class="chart-actions">
+                <button class="action-btn active">Bulanan</button>
+                <button class="action-btn">Tahunan</button>
+            </div>
+        </div>
+        <!-- Tambahkan wrapper untuk chart -->
+        <div class="chart-wrapper">
+            <canvas id="monthly-chart"></canvas>
+        </div>
+    </div>
+    
+    <div class="chart-container">
+        <div class="chart-header">
+            <h3>Distribusi Berdasarkan Kategori</h3>
+        </div>
+        <!-- Tambahkan wrapper untuk chart -->
+        <div class="chart-wrapper">
+            <canvas id="category-chart"></canvas>
+        </div>
+    </div>
+</div>
+
+            
+            <!-- Report Table -->
+            <div class="documents-container">
+                <div class="table-header">
+                    <div>
+                        <h3>Detail Arsip</h3>
+                        <p>Menampilkan 50 dari 1,245 dokumen</p>
+                    </div>
+                    <div class="table-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="table-search" placeholder="Cari di laporan...">
+                        </div>
+                        <button class="action-btn">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <table class="documents-table">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Jenis</th>
+                            <th>Dokumen</th>
+                            <th>Kategori</th>
+                            <th>Status</th>
+                            <th>Durasi Verifikasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>15 Mar 2025</td>
+                            <td><span class="badge incoming">Masuk</span></td>
+                            <td>Laporan Keuangan Q1 2025.pdf</td>
+                            <td>Keuangan</td>
+                            <td><span class="status-badge approved">Disetujui</span></td>
+                            <td>1.2 Hari</td>
+                        </tr>
+                        <tr>
+                            <td>14 Mar 2025</td>
+                            <td><span class="badge incoming">Masuk</span></td>
+                            <td>Proposal Penelitian 2025.docx</td>
+                            <td>Penelitian</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>2.5 Hari</td>
+                        </tr>
+                        <tr>
+                            <td>14 Mar 2025</td>
+                            <td><span class="badge outgoing">Keluar</span></td>
+                            <td>Surat Penawaran Kerjasama.pdf</td>
+                            <td>Administrasi</td>
+                            <td><span class="status-badge approved">Disetujui</span></td>
+                            <td>0.8 Hari</td>
+                        </tr>
+                        <tr>
+                            <td>12 Mar 2025</td>
+                            <td><span class="badge incoming">Masuk</span></td>
+                            <td>Data Karyawan 2025.xlsx</td>
+                            <td>SDM</td>
+                            <td><span class="status-badge approved">Disetujui</span></td>
+                            <td>1.5 Hari</td>
+                        </tr>
+                        <tr>
+                            <td>10 Mar 2025</td>
+                            <td><span class="badge outgoing">Keluar</span></td>
+                            <td>Laporan Kegiatan Bulanan.docx</td>
+                            <td>Laporan</td>
+                            <td><span class="status-badge approved">Disetujui</span></td>
+                            <td>1.0 Hari</td>
+                        </tr>
+                        <tr>
+                            <td>9 Mar 2025</td>
+                            <td><span class="badge incoming">Masuk</span></td>
+                            <td>Permintaan Pembelian Barang.xlsx</td>
+                            <td>Keuangan</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>3.2 Hari</td>
+                        </tr>
+                        <tr>
+                            <td>7 Mar 2025</td>
+                            <td><span class="badge outgoing">Keluar</span></td>
+                            <td>Berita Acara Rapat.pdf</td>
+                            <td>Administrasi</td>
+                            <td><span class="status-badge approved">Disetujui</span></td>
+                            <td>0.7 Hari</td>
+                        </tr>
+                        <tr>
+                            <td>5 Mar 2025</td>
+                            <td><span class="badge outgoing">Keluar</span></td>
+                            <td>Surat Pemberitahuan Libur Nasional.docx</td>
+                            <td>Umum</td>
+                            <td><span class="status-badge approved">Disetujui</span></td>
+                            <td>0.5 Hari</td>
+                        </tr>
+                        <tr>
+                            <td>3 Mar 2025</td>
+                            <td><span class="badge incoming">Masuk</span></td>
+                            <td>Data Karyawan 2025.xlsx</td>
+                            <td>SDM</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>2.8 Hari</td>
+                        </tr>
+                        <tr>
+                            <td>1 Mar 2025</td>
+                            <td><span class="badge outgoing">Keluar</span></td>
+                            <td>Laporan Keuangan Februari.pdf</td>
+                            <td>Keuangan</td>
+                            <td><span class="status-badge approved">Disetujui</span></td>
+                            <td>1.1 Hari</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination-btn" id="prev-page">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">4</button>
+                    <button class="pagination-btn">5</button>
+                    <button class="pagination-btn" id="next-page">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ArsipDigital</h3>
+                    <p>Solusi manajemen kearsipan digital terintegrasi untuk institusi modern.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Navigasi</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="arsip-masuk.html"><i class="fas fa-chevron-right"></i> Arsip Masuk</a></li>
+                        <li><a href="arsip-keluar.html"><i class="fas fa-chevron-right"></i> Arsip Keluar</a></li>
+                        <li><a href="klasifikasi.html"><i class="fas fa-chevron-right"></i> Klasifikasi</a></li>
+                        <li><a href="statistik.html"><i class="fas fa-chevron-right"></i> Statistik</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="laporan.html"><i class="fas fa-chevron-right"></i> Laporan</a></li>
+                        <li><a href="buku-tamu.html"><i class="fas fa-chevron-right"></i> Buku Tamu</a></li>
+                        <li><a href="pengenalan-arsip-digital.html"><i class="fas fa-chevron-right"></i> Video Tutorial</a></li>
+                        <li><a href="login.html"><i class="fas fa-chevron-right"></i> Login Admin</a></li>
+                        <li><a href="tentang.html"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak Kami</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Jl. Arsip No. 123, Jakarta</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> (021) 977777959</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> muhammadrickyardian@arsipdigital.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Senin-Jumat: 08:00 - 17:00</a></li>
+                        <li><a href="#"><i class="fas fa-download"></i> Download Panduan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Sistem Kearsipan Digital. Dibuat oleh Muhammad Ricky Ardian. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/laporan-script.js"></script>
+</body>
+</html>

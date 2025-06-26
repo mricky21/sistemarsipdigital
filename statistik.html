@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistik - Sistem Kearsipan Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/statistik-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-archive"></i>
+                    <span>ArsipDigital</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Beranda</a>
+                    <a href="arsip-masuk.html">Arsip Masuk</a>
+                    <a href="arsip-keluar.html">Arsip Keluar</a>
+                    <a href="klasifikasi.html">Klasifikasi</a>
+                    <a href="laporan.html">Laporan</a>
+                    <a href="statistik.html" class="active">Statistik</a>
+                    <a href="tentang.html">Tentang</a>
+                    <div class="user-profile">
+                        <div class="user-avatar">MRA</div>
+                        <div>
+                            <div>Muhammad Ricky Ardian</div>
+                            <small>Administrator</small>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Statistik Arsip</h1>
+                    <p>Analisis visual kinerja sistem kearsipan digital</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" id="export-stats">
+                        <i class="fas fa-file-export"></i> Ekspor Data
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Stats Summary -->
+            <div class="stats-summary">
+                <div class="summary-card">
+                    <div class="card-icon">
+                        <i class="fas fa-file-import"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Arsip Masuk</h3>
+                        <div class="card-value">142</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-up"></i> 12% dari bulan lalu
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-icon">
+                        <i class="fas fa-file-export"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Arsip Keluar</h3>
+                        <div class="card-value">76</div>
+                        <div class="card-change negative">
+                            <i class="fas fa-arrow-down"></i> 5% dari bulan lalu
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Verifikasi Rata-rata</h3>
+                        <div class="card-value">1.8 Hari</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-down"></i> 0.7 hari lebih cepat
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Produktivitas</h3>
+                        <div class="card-value">84%</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-up"></i> 12% lebih baik
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Trend Arsip Harian</h3>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="daily-trend-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Distribusi Kategori</h3>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="category-distribution-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Status Verifikasi</h3>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="verification-status-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Top Pengirim</h3>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="top-senders-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Time Period Selector -->
+            <div class="time-selector">
+                <div class="time-options">
+                    <button class="time-option active">Hari Ini</button>
+                    <button class="time-option">7 Hari</button>
+                    <button class="time-option">Bulan Ini</button>
+                    <button class="time-option">3 Bulan</button>
+                    <button class="time-option">Tahun Ini</button>
+                </div>
+                <div class="custom-date">
+                    <input type="date" id="start-date">
+                    <span>sampai</span>
+                    <input type="date" id="end-date">
+                    <button class="btn btn-sm">Terapkan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ArsipDigital</h3>
+                    <p>Solusi manajemen kearsipan digital terintegrasi untuk institusi modern.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Navigasi</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="arsip-masuk.html"><i class="fas fa-chevron-right"></i> Arsip Masuk</a></li>
+                        <li><a href="arsip-keluar.html"><i class="fas fa-chevron-right"></i> Arsip Keluar</a></li>
+                        <li><a href="klasifikasi.html"><i class="fas fa-chevron-right"></i> Klasifikasi</a></li>
+                        <li><a href="statistik.html"><i class="fas fa-chevron-right"></i> Statistik</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="laporan.html"><i class="fas fa-chevron-right"></i> Laporan</a></li>
+                        <li><a href="buku-tamu.html"><i class="fas fa-chevron-right"></i> Buku Tamu</a></li>
+                        <li><a href="pengenalan-arsip-digital.html"><i class="fas fa-chevron-right"></i> Video Tutorial</a></li>
+                        <li><a href="login.html"><i class="fas fa-chevron-right"></i> Login Admin</a></li>
+                        <li><a href="tentang.html"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak Kami</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Jl. Arsip No. 123, Jakarta</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> (021) 977777959</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> muhammadrickyardian@arsipdigital.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Senin-Jumat: 08:00 - 17:00</a></li>
+                        <li><a href="#"><i class="fas fa-download"></i> Download Panduan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Sistem Kearsipan Digital. Dibuat oleh Muhammad Ricky Ardian. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/statistik-script.js"></script>
+</body>
+</html>

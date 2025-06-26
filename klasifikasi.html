@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klasifikasi - Sistem Kearsipan Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/klasifikasi-style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-archive"></i>
+                    <span>ArsipDigital</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Beranda</a>
+                    <a href="arsip-masuk.html">Arsip Masuk</a>
+                    <a href="arsip-keluar.html">Arsip Keluar</a>
+                    <a href="klasifikasi.html" class="active">Klasifikasi</a>
+                    <a href="laporan.html">Laporan</a>
+                    <a href="statistik.html">Statistik</a>
+                    <a href="tentang.html">Tentang</a>
+                    <div class="user-profile">
+                        <div class="user-avatar">MRA</div>
+                        <div>
+                            <div>Muhammad Ricky Ardian</div>
+                            <small>Administrator</small>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Klasifikasi Arsip</h1>
+                    <p>Kelola sistem klasifikasi dokumen arsip digital</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" id="add-classification">
+                        <i class="fas fa-plus"></i> Tambah Klasifikasi
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Classification Cards -->
+            <div class="classification-grid">
+                <div class="classification-card">
+                    <div class="card-header">
+                        <div class="classification-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="classification-info">
+                            <h3>Keuangan</h3>
+                            <span class="doc-count">245 Dokumen</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Dokumen terkait keuangan perusahaan, laporan keuangan, anggaran, dan pembayaran.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm edit-btn">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-sm delete-btn">
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="classification-card">
+                    <div class="card-header">
+                        <div class="classification-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="classification-info">
+                            <h3>SDM</h3>
+                            <span class="doc-count">178 Dokumen</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Dokumen sumber daya manusia, rekruitmen, penggajian, evaluasi kinerja, dan pelatihan.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm edit-btn">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-sm delete-btn">
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="classification-card">
+                    <div class="card-header">
+                        <div class="classification-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="classification-info">
+                            <h3>Administrasi</h3>
+                            <span class="doc-count">312 Dokumen</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Dokumen administratif, surat menyurat, perjanjian, kontrak, dan dokumen legal lainnya.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm edit-btn">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-sm delete-btn">
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="classification-card">
+                    <div class="card-header">
+                        <div class="classification-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="classification-info">
+                            <h3>Penelitian</h3>
+                            <span class="doc-count">89 Dokumen</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Dokumen penelitian dan pengembangan, hasil studi, makalah, dan publikasi ilmiah.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm edit-btn">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-sm delete-btn">
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="classification-card">
+                    <div class="card-header">
+                        <div class="classification-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="classification-info">
+                            <h3>Manajemen</h3>
+                            <span class="doc-count">156 Dokumen</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Dokumen manajemen strategis, rencana bisnis, laporan direksi, dan kebijakan perusahaan.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm edit-btn">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-sm delete-btn">
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="classification-card">
+                    <div class="card-header">
+                        <div class="classification-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="classification-info">
+                            <h3>Sertifikat</h3>
+                            <span class="doc-count">67 Dokumen</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Sertifikat, lisensi, akreditasi, dan dokumen pengakuan kualitas lainnya.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm edit-btn">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-sm delete-btn">
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Classification Table -->
+            <div class="documents-container">
+                <div class="table-header">
+                    <div>
+                        <h3>Daftar Klasifikasi</h3>
+                        <p>Total 6 klasifikasi arsip yang terdaftar</p>
+                    </div>
+                    <div class="table-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="table-search" placeholder="Cari klasifikasi...">
+                        </div>
+                        <button class="action-btn">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <table class="classification-table">
+                    <thead>
+                        <tr>
+                            <th>Kode</th>
+                            <th>Nama Klasifikasi</th>
+                            <th>Jumlah Dokumen</th>
+                            <th>Retensi</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>K001</td>
+                            <td>Keuangan</td>
+                            <td>245</td>
+                            <td>10 Tahun</td>
+                            <td><span class="status-badge active">Aktif</span></td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn edit-btn">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-btn">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>K002</td>
+                            <td>SDM</td>
+                            <td>178</td>
+                            <td>5 Tahun</td>
+                            <td><span class="status-badge active">Aktif</span></td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn edit-btn">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-btn">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>K003</td>
+                            <td>Administrasi</td>
+                            <td>312</td>
+                            <td>Permanen</td>
+                            <td><span class="status-badge active">Aktif</span></td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn edit-btn">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-btn">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>K004</td>
+                            <td>Penelitian</td>
+                            <td>89</td>
+                            <td>7 Tahun</td>
+                            <td><span class="status-badge active">Aktif</span></td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn edit-btn">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-btn">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>K005</td>
+                            <td>Manajemen</td>
+                            <td>156</td>
+                            <td>Permanen</td>
+                            <td><span class="status-badge active">Aktif</span></td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn edit-btn">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-btn">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>K006</td>
+                            <td>Sertifikat</td>
+                            <td>67</td>
+                            <td>Permanen</td>
+                            <td><span class="status-badge active">Aktif</span></td>
+                            <td>
+                                <div class="document-actions">
+                                    <button class="action-btn edit-btn">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-btn">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Classification Modal -->
+    <div class="modal" id="classification-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Klasifikasi Baru</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="classification-form">
+                    <div class="form-group">
+                        <label for="code">Kode Klasifikasi</label>
+                        <input type="text" id="code" class="form-control" placeholder="Contoh: K001" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Nama Klasifikasi</label>
+                        <input type="text" id="name" class="form-control" placeholder="Contoh: Keuangan" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="retention">Jangka Retensi</label>
+                        <select id="retention" class="form-control" required>
+                            <option value="">Pilih Jangka Retensi</option>
+                            <option value="1">1 Tahun</option>
+                            <option value="3">3 Tahun</option>
+                            <option value="5">5 Tahun</option>
+                            <option value="10">10 Tahun</option>
+                            <option value="permanent">Permanen</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Deskripsi</label>
+                        <textarea id="description" class="form-control" rows="3" placeholder="Deskripsi singkat tentang klasifikasi ini"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="icon">Ikon Klasifikasi</label>
+                        <div class="icon-grid">
+                            <div class="icon-option active">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="icon-option">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="icon-option">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="icon-option">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="icon-option">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="icon-option">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary close-modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan Klasifikasi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ArsipDigital</h3>
+                    <p>Solusi manajemen kearsipan digital terintegrasi untuk institusi modern.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Navigasi</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="arsip-masuk.html"><i class="fas fa-chevron-right"></i> Arsip Masuk</a></li>
+                        <li><a href="arsip-keluar.html"><i class="fas fa-chevron-right"></i> Arsip Keluar</a></li>
+                        <li><a href="klasifikasi.html"><i class="fas fa-chevron-right"></i> Klasifikasi</a></li>
+                        <li><a href="statistik.html"><i class="fas fa-chevron-right"></i> Statistik</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="laporan.html"><i class="fas fa-chevron-right"></i> Laporan</a></li>
+                        <li><a href="buku-tamu.html"><i class="fas fa-chevron-right"></i> Buku Tamu</a></li>
+                        <li><a href="pengenalan-arsip-digital.html"><i class="fas fa-chevron-right"></i> Video Tutorial</a></li>
+                        <li><a href="login.html"><i class="fas fa-chevron-right"></i> Login Admin</a></li>
+                        <li><a href="tentang.html"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak Kami</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Jl. Teknologi No. 123, Jakarta</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> (021) 555-1234</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@arsipdigital.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Senin-Jumat: 08:00 - 17:00</a></li>
+                        <li><a href="#"><i class="fas fa-download"></i> Download Panduan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Sistem Kearsipan Digital. Dibuat oleh Muhammad Ricky Ardian. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/klasifikasi-script.js"></script>
+</body>
+</html>
